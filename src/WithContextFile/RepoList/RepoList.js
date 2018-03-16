@@ -2,7 +2,7 @@ import React from 'react'
 
 import { GitHubContext } from '../Contexts/Github'
 
-export class ProjectList extends React.Component {
+export class RepoList extends React.Component {
   render() {
     return (
       <GitHubContext.Consumer>
@@ -37,4 +37,4 @@ export class ProjectList extends React.Component {
   }
 }
 
-export default ProjectList
+export default RepoList

@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { GitHubContext } from '../Contexts/Github'
+import { Consumer } from '../../ContextCreator'
 
-export class ProjectInput extends React.Component {
+export class UsernameInput extends React.Component {
   render() {
     return (
-      <GitHubContext.Consumer>
+      <Consumer name="github">
         {({ state, actions }) => {
           const { username } = state
           const { fetchRepos, updateUsername } = actions
@@ -32,9 +32,9 @@ export class ProjectInput extends React.Component {
             </div>
           )
         }}
-      </GitHubContext.Consumer>
+      </Consumer>
     )
   }
 }
 
-export default ProjectInput
+export default UsernameInput

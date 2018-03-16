@@ -2,33 +2,32 @@ import './App.css'
 
 import React, { Component } from 'react'
 
-import { ProjectInput } from '../ProjectInput'
-import { ProjectList } from '../ProjectList'
-import { ProjectDetails } from '../ProjectDetails'
+import { UsernameInput } from '../UsernameInput'
+import { RepoList } from '../RepoList'
+import { RepoDetails } from '../RepoDetails'
 
 import {
-  GitHubProvider
+  GitHubContext
 } from '../Contexts/Github'
 
 class App extends Component {
   render() {
     return (
-      <GitHubProvider>
+      <GitHubContext.Provider>
         <div className="App">
-          <h1>My Github Explorer</h1>
+          <h1>My Github Explorer (Context File)</h1>
 
-          <ProjectInput />
+          <UsernameInput />
 
           <div style={{
             display: 'flex',
             justifyContent: 'space-between'
           }}>
-
-            <ProjectList />
-            <ProjectDetails />
+            <RepoList />
+            <RepoDetails />
           </div>
         </div>
-      </GitHubProvider>
+      </GitHubContext.Provider>
     )
   }
 }
