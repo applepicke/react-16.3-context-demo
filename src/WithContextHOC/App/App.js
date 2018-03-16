@@ -7,7 +7,7 @@ import { UsernameInput } from '../UsernameInput'
 import { RepoList } from '../RepoList'
 import { RepoDetails } from '../RepoDetails'
 
-import * as githubActions from '../actions/github'
+import * as githubContext from '../actions/github'
 
 class App extends Component {
   render() {
@@ -29,11 +29,6 @@ class App extends Component {
   }
 }
 
-export default withProvider('github', App, {
-  initialState: {
-    username: '',
-    repoList: [],
-    selectedRepo: null,
-  },
-  actions: githubActions
-})
+const { initialState, ...actions } = githubContext
+
+export default withProvider('github', App, { initialState, actions })

@@ -7,6 +7,11 @@ export class UsernameInput extends React.Component {
     const { username, actions } = this.props
     const { fetchRepos, updateUsername } = actions
 
+    const handleSearch = () => {
+      fetchRepos(username).then(() => {
+      })
+    }
+
     return (
       <div className="project-input">
         <input
@@ -15,7 +20,7 @@ export class UsernameInput extends React.Component {
           value={username}
           onKeyPress={event => {
             if (event.key === 'Enter') {
-              fetchRepos(username)
+              handleSearch()
             }
           }}
           onChange={event => {
@@ -23,7 +28,7 @@ export class UsernameInput extends React.Component {
             updateUsername(event.target.value)
           }}
         />
-        <button onClick={() => fetchRepos(username)}>
+        <button onClick={handleSearch}>
           Search
         </button>
       </div>
